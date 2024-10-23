@@ -1,6 +1,8 @@
 from django.db import models
 from django.db import models
 
+# Create your models here.
+
 Property_type = (
     ('Apartment', 'Apartment'),
     ('commercial', 'Commercial'),
@@ -42,4 +44,4 @@ class Lease(models.Model):
     def __str__(self):
         return self.tenant.name
 
-# Create your models here.
+
