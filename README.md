@@ -13,3 +13,11 @@ run the initial migration
 create the super user with their credentials
 run the server
 accessing the admin interface
+Models overview
+1.Property model
+represent a property(e.g apartment complex,commercialbuilding).key fields:
+name:name of the proprty.
+address:physics address of the property.
+property_type:type of property(e.g:apartment,house,commercial).
+description:additionaldescription or notes about the property.
+number\-of_units:number of units available in the property
