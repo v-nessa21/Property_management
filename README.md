@@ -20,6 +20,8 @@ run the initial migration
 create the super user with their credentials
 
 
+
+
 run the server
 
 accessing the admin interface
@@ -40,3 +42,41 @@ property_type:type of property(e.g:apartment,house,commercial).
 description:additionaldescription or notes about the property.
 
 number-of_units:number of units available in the property
+
+2. unit model
+   
+it represents the following key fields
+
+property:foreighnkey to the property model.
+
+unit_number:identifier for the unit
+
+bedrooms,bathrooms:number of bedrooms and barhrooms.
+
+rent:monthly rent for the unit.
+
+is_available for lease.
+
+3. tenant model
+
+represents a tents in the property management system. key fields:
+
+name:tenant' full name
+
+email:tenant'email addess
+
+phone_number: tenant's phone number
+
+4.lease model
+
+represents a lease agreements between a tenant and a unit. key fields:
+
+tenant:foreignkey to the tenant model
+
+unit:foreignkey to the unit model
+
+start-data,end_date:dates when the lease starts and ends.
+
+rent_amount:rent amount agrees upon in the lease
+
+
