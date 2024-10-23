@@ -20,4 +20,4 @@ name:name of the proprty.
 address:physics address of the property.
 property_type:type of property(e.g:apartment,house,commercial).
 description:additionaldescription or notes about the property.
-number\-of_units:number of units available in the property
+number-of_units:number of units available in the property
