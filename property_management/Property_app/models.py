@@ -6,6 +6,7 @@ Property_type = (
     ('commercial', 'Commercial'),
     ('house', 'House'),
 )
+#property model
 class Property(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
@@ -14,6 +15,7 @@ class Property(models.Model):
     number_unit = models.CharField(max_length=100)
     def __str__(self):
         return self.name
+#unit property
 class Unit(models.Model):
     property_type = models.ForeignKey(Property, on_delete=models.CASCADE)
     unit_number = models.CharField(max_length=100)
@@ -23,12 +25,14 @@ class Unit(models.Model):
     is_available = models.BooleanField()
     def __str__(self):
         return self.unit_number
+#tenant model
 class Tenant(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone_number = models.CharField(max_length=100)
     def __str__(self):
         return self.email
+#lease model
 class Lease(models.Model):
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE)
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
