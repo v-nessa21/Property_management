@@ -98,11 +98,4 @@ start-data,end_date:dates when the lease starts and ends.
 rent_amount:rent amount agrees upon in the lease
 
 
-IN THE ADMIN INTERFACE
-
-so when running the server and go to ADMIN INTERFACE you can login using credentials of super user here the admin is allowed to add an information in same property management 
-
-
-Admin is allowed to add ,change and delete all information 
-
 
