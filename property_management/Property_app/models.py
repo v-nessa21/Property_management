@@ -1,47 +1,49 @@
 from django.db import models
-from django.db import models
-
 # Create your models here.
-
-Property_type = (
-    ('Apartment', 'Apartment'),
-    ('commercial', 'Commercial'),
-    ('house', 'House'),
+property_type = (
+    ('commercial', 'commercial'),
+    ('residential', 'residential'),
+    ('apartment', 'apartment')
 )
-#property model
 class Property(models.Model):
-    name = models.CharField(max_length=100)
+
+    my_name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    property_type = models.CharField(max_length=100, choices=Property_type)
-    description = models.TextField()
-    number_unit = models.CharField(max_length=100)
-    def __str__(self):
-        return self.name
-#unit property
+    property_type = models.CharField(max_length=100, choices=property_type)
+    description = models.TextField(default='',)
+    number_of_units = models.IntegerField(default=0)
+
+    def _str_(self):
+        return f'{self.my_name} is located in {self.address}'
+    class Meta:
+        verbose_name = 'Property'
+        verbose_name_plural = 'Properties'
+
 class Unit(models.Model):
-    property_type = models.ForeignKey(Property, on_delete=models.CASCADE)
+    property = models.ForeignKey(Property, on_delete=models.CASCADE)
     unit_number = models.CharField(max_length=100)
     bedrooms = models.IntegerField()
     bathrooms = models.IntegerField()
     rent = models.IntegerField()
     is_available = models.BooleanField()
-    def __str__(self):
-        return self.unit_number
-#tenant model
+    def _str_(self):
+        return f'{self.unit_number} {self.is_available}'
+    #
+    # {self.bedrooms} {self.bathrooms} {self.rent} {self.is_available}
+
 class Tenant(models.Model):
     name = models.CharField(max_length=100)
-    email = models.EmailField()
+    email = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
-    def __str__(self):
-        return self.email
-#lease model
+    def _str_(self):
+         return f'{self.name}'
+     # {self.email} {self.phone_number}
+
 class Lease(models.Model):
     tenant = models.ForeignKey(Tenant, on_delete=models.CASCADE)
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()
     rent_amount = models.IntegerField()
-    def __str__(self):
+    def _str_(self):
         return self.tenant.name
-
-
